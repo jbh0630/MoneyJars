@@ -12,16 +12,38 @@ public class DatabaseBase extends SQLiteOpenHelper {
 
     final static String DATABASE_NAME = "MoneyJarsDB";
     final static int DATABASE_VERSION = 1;
-    final static String TABLE1_NAME = "Student";
-    final static String T1COL_1 = "Id";
-    final static String T1COL_2 = "FName";
-    final static String T1COL_3 = "LName";
-    final static String T1COL_4 = "Cell";
-    final static String T1COL_5 = "CId";
+    final static String TABLE_USER = "USER";
+    final static String TABLE_USER_COL_EMAIL        = "Email";
+    final static String TABLE_USER_COL_FIRSTNAME    = "FirstName";
+    final static String TABLE_USER_COL_LASTNAME     = "LastName";
+    final static String TABLE_USER_COL_PASSWORD     = "Password";
+    final static String TABLE_USER_COL_ROLE         = "ROLE";
 
-    final static String TABLE2_NAME = "Course";
-    final static String T2COL_1 = "CId";
-    final static String T2COL_2 = "CName";
+
+    final static String TABLE_FINANCIAL = "FINANCIAL";
+    final static String TABLE_FINANCIAL_COL_FINANCIALID        = "FinancialID";
+    final static String TABLE_FINANCIAL_COL_TITLE    = "Title";
+    final static String TABLE_FINANCIAL_COL_AMOUNT     = "Amount";
+    final static String TABLE_FINANCIAL_COL_ISSUEDATE     = "IssuedDate";
+    final static String TABLE_FINANCIAL_COL_TYPE         = "Type";
+    final static String TABLE_FINANCIAL_COL_EMAIL         = "Email";
+
+
+    final static String TABLE_EXPENSE = "EXPENSE";
+    final static String TABLE_EXPENSE_COL_FINANCIALID        = "FinancialID";
+    final static String TABLE_EXPENSE_COL_NOTE    = "Note";
+
+    final static String TABLE_CATEGORY = "CATEGORY";
+    final static String TABLE_CATEGORY_COL_CATEGORYID        = "CategoryID";
+    final static String TABLE_CATEGORY_COL_CATEGORYNAME    = "CategoryName";
+    final static String TABLE_CATEGORY_COL_CATEGORYTYPE     = "CategoryType";
+
+    final static String TABLE_BIGEXPENSE = "BIGEXPENSE";
+    final static String TABLE_BIGEXPENSE_COL_BIGEXPENSEID   = "BigExpenseID";
+    final static String TABLE_BIGEXPENSE_COL_TITLE          = "Title";
+    final static String TABLE_BIGEXPENSE_COL_AMOUNT         = "Amount";
+    final static String TABLE_BIGEXPENSE_COL_ISSUEDATE      = "IssuedDate";
+    final static String TABLE_BIGEXPENSE_COL_EMAIL          = "Email";
 
 
     public DatabaseBase(@Nullable Context context) {
@@ -31,23 +53,54 @@ public class DatabaseBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query ="CREATE TABLE "+ TABLE1_NAME + "(" +
-                T1COL_1 + " INTEGER PRIMARY KEY," +
-                T1COL_2 + " TEXT," +
-                T1COL_3 + " TEXT," +
-                T1COL_4 + " TEXT," +
-                T1COL_5 + " TEXT)";
+        String query = "CREATE TABLE "+ TABLE_USER +" ("+ TABLE_USER_COL_EMAIL +" VARCHAR(30),"+
+                TABLE_USER_COL_FIRSTNAME + " VARCHAR(20),"+
+                TABLE_USER_COL_LASTNAME + " VARCHAR(20),"+
+                TABLE_USER_COL_PASSWORD + " VARCHAR(20),"+
+                TABLE_USER_COL_ROLE + " CHAR(2),"+
+                "PRIMARY KEY ("+TABLE_USER_COL_EMAIL+"))";
         db.execSQL(query);
-        String cQuery ="CREATE TABLE "+ TABLE2_NAME + "(" +
-                T2COL_1 + " TEXT," +
-                T2COL_2 + " TEXT)";
-        db.execSQL(cQuery);
+
+        query = "CREATE TABLE "+TABLE_FINANCIAL + " ("+TABLE_FINANCIAL_COL_FINANCIALID+" INT,"+
+                TABLE_FINANCIAL_COL_TITLE + " VARCHAR(50),"+
+                TABLE_FINANCIAL_COL_AMOUNT + " DECIMAL(10,2),"+
+                TABLE_FINANCIAL_COL_ISSUEDATE + " DATE,"+
+                TABLE_FINANCIAL_COL_TYPE + " CHAR(2),"+
+                TABLE_FINANCIAL_COL_EMAIL + " VARCHAR(30),"+
+                "PRIMARY KEY ("+TABLE_FINANCIAL_COL_FINANCIALID+"),"+
+                "FOREIGN KEY("+TABLE_FINANCIAL_COL_EMAIL+") REFERENCES "+TABLE_USER+"("+ TABLE_USER_COL_EMAIL +") ON DELETE CASCADE)";
+        db.execSQL(query);
+
+        query = "CREATE TABLE "+TABLE_EXPENSE + " ("+TABLE_EXPENSE_COL_FINANCIALID+" INT,"+
+                TABLE_EXPENSE_COL_NOTE + " VARCHAR(5000),"+
+                "PRIMARY KEY ("+TABLE_EXPENSE_COL_FINANCIALID+"),"+
+                "FOREIGN KEY("+TABLE_EXPENSE_COL_FINANCIALID+") REFERENCES "+TABLE_FINANCIAL+"("+ TABLE_FINANCIAL_COL_FINANCIALID +") ON DELETE CASCADE)";
+        db.execSQL(query);
+
+        query = "CREATE TABLE "+ TABLE_CATEGORY +" ("+ TABLE_CATEGORY_COL_CATEGORYID +" INT,"+
+                TABLE_CATEGORY_COL_CATEGORYNAME + " VARCHAR(50),"+
+                TABLE_CATEGORY_COL_CATEGORYTYPE + " CHAR(2),"+
+                "PRIMARY KEY ("+TABLE_CATEGORY_COL_CATEGORYID+"))";
+        db.execSQL(query);
+
+        query = "CREATE TABLE "+TABLE_BIGEXPENSE + " ("+TABLE_BIGEXPENSE_COL_BIGEXPENSEID+" INT,"+
+                TABLE_BIGEXPENSE_COL_TITLE + " VARCHAR(50),"+
+                TABLE_BIGEXPENSE_COL_AMOUNT + " DECIMAL(10,2),"+
+                TABLE_BIGEXPENSE_COL_ISSUEDATE + " DATE,"+
+                TABLE_BIGEXPENSE_COL_EMAIL + " VARCHAR(30),"+
+                "PRIMARY KEY ("+TABLE_BIGEXPENSE_COL_BIGEXPENSEID+"),"+
+                "FOREIGN KEY("+TABLE_BIGEXPENSE_COL_EMAIL+") REFERENCES "+TABLE_USER+"("+ TABLE_USER_COL_EMAIL +") ON DELETE CASCADE)";
+        db.execSQL(query);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE1_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE2_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BIGEXPENSE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORY);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXPENSE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FINANCIAL);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         onCreate(db);
     }
 
