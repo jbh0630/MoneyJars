@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MoneyJars</string>
+    <string-array name="category">
+        <item>Bills &amp; Utilities</item>
+        <item>Grocery</item>
+        <item>Dining</item>
+        <item>Transportation</item>
+    </string-array>
+    <string-array name="incomeCategory">
+        <item>Salary</item>
+        <item>Saving</item>
+        <item>Interest</item>
+        <item>Additional Income</item>
+    </string-array>
+    <string name="txtItemBigExpense">Item:</string>
+    <string name="txtAmountBigExpense">Amount:</string>
+    <string name="txtAffordByBigExpense">Afford By:</string>
+    <string name="hintBigExpense1">Wish Name</string>
+    <string name="hintBigExpense2">Price</string>
+    <string name="hintBigExpense3">Date</string>
+    <string name="btnSave">Save</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="hintBigExpense4">YYYY/MM/DD</string>
+
+</resources>
