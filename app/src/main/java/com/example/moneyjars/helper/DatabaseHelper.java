@@ -1,12 +1,11 @@
-package com.example.moneyjars;
+package com.example.moneyjars.helper;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
+import com.example.moneyjars.helper.DatabaseBase;
 
 public class DatabaseHelper extends DatabaseBase {
 

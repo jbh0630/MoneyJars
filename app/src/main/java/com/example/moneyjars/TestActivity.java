@@ -1,8 +1,5 @@
 package com.example.moneyjars;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +8,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TestActivity extends AppCompatActivity {
+import com.example.moneyjars.helper.DatabaseHelper;
+
+public class TestActivity extends HeaderActivity {
     DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
         databaseHelper = new DatabaseHelper(this);
         Button btnAdd = findViewById(R.id.btnAdd);
         Button btnView = findViewById(R.id.btnView);
