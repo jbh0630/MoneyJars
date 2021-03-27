@@ -8,10 +8,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseBase extends SQLiteOpenHelper {
+    // Daily Limit
+    final static BigDecimal DAILY_LIMIT = new BigDecimal(1000);
 
     final static String DATABASE_NAME = "MoneyJarsDB";
     final static int DATABASE_VERSION = 2;
