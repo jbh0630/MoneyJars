@@ -13,6 +13,7 @@ import android.widget.Toast;
 public class BigExpenseDetailActivity extends AppCompatActivity {
     BigExpenseDatabaseHelper bigExpenseDatabaseHelper;
     int bigExpenseIdData;
+    int testtest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
