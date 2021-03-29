@@ -16,7 +16,9 @@
         android:id="@+id/btnAdd"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_weight="1"
         android:layout_marginLeft="150dp"
-        android:text="Button" />
+        android:layout_weight="1"
+        android:text="@string/btnBack"
+        android:textStyle="bold"
+        app:backgroundTint="#000000" />
 </LinearLayout>

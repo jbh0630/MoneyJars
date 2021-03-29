@@ -21,5 +21,6 @@
     <string name="btnSave">Save</string>
     <string name="btnCancel">Cancel</string>
     <string name="hintBigExpense4">YYYY/MM/DD</string>
+    <string name="btnBack">Back</string>
 
 </resources>
