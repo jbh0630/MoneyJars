@@ -5,7 +5,7 @@
     android:id="@+id/txtWixhItem"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BigExpense.BigExpenseDetailActivity">
+    tools:context=".BigExpenseDetailActivity">
 
     <View
         android:id="@+id/view"
@@ -21,19 +21,18 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <TextView
-        android:id="@+id/textView56"
+        android:id="@+id/resultAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="71dp"
-        android:layout_marginRight="71dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
         android:layout_marginBottom="72dp"
-        android:text="$30,000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView60"
+        app:layout_constraintBottom_toTopOf="@+id/resultScenario1"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textView55"
+        android:id="@+id/resultWishItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
@@ -41,7 +40,7 @@
         android:layout_marginTop="30dp"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDateBigExpense" />
+        app:layout_constraintTop_toBottomOf="@+id/resultDate" />
 
     <TextView
         android:id="@+id/textView57"
@@ -53,7 +52,7 @@
         android:text="Scenario 1"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView55" />
+        app:layout_constraintTop_toBottomOf="@+id/resultWishItem" />
 
     <TextView
         android:id="@+id/textView58"
@@ -65,7 +64,7 @@
         android:text="Scenario 2"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView60" />
+        app:layout_constraintTop_toBottomOf="@+id/resultScenario1" />
 
     <TextView
         android:id="@+id/textView59"
@@ -77,47 +76,43 @@
         android:text="Scenario 3"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView61" />
+        app:layout_constraintTop_toBottomOf="@+id/resultScenario2" />
 
     <TextView
-        android:id="@+id/textView60"
+        android:id="@+id/resultScenario1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="4dp"
-        android:text="$30,000(Saving)"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/textView57"
         app:layout_constraintTop_toBottomOf="@+id/textView57" />
 
     <TextView
-        android:id="@+id/textView61"
+        android:id="@+id/resultScenario2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$20,000(Saving) + 10,000(Loan)"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/textView58"
         app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
     <TextView
-        android:id="@+id/textView62"
+        android:id="@+id/resultScenario3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="30,000(Loan)"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/textView59"
         app:layout_constraintTop_toTopOf="@+id/textView59" />
 
     <TextView
-        android:id="@+id/txtDateBigExpense"
+        android:id="@+id/resultDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
         android:layout_marginLeft="33dp"
         android:layout_marginTop="186dp"
-        android:text="2021/03/05"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -182,7 +177,7 @@
         android:layout_marginTop="61dp"
         android:layout_marginBottom="68dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/txtDateBigExpense"
+        app:layout_constraintBottom_toTopOf="@+id/resultDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -205,5 +200,12 @@
             android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/resultItemId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="144dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

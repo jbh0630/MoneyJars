@@ -1,14 +1,9 @@
-package com.example.moneyjars.BigExpense;
+package com.example.moneyjars;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
-
-import java.math.BigDecimal;
 
 public class BigExpenseDatabaseHelper extends DatabaseBase {
     SQLiteDatabase sqLiteDatabase;
@@ -19,25 +14,25 @@ public class BigExpenseDatabaseHelper extends DatabaseBase {
             sqLiteDatabase = super.getWritableDatabase();
         }
 
-    public Cursor viewBigExpenseData(){
-        String query = " SELECT * FROM " + TABLE_BIGEXPENSE;
+    public Cursor viewBigExpenseData(String email){
+        String query = " SELECT * FROM " + TABLE_BIGEXPENSE+" WHERE " + TABLE_BIGEXPENSE_COL_EMAIL+ "= '"+email+"'";
         Cursor c = sqLiteDatabase.rawQuery(query, null);
         return c;
     }
 
-    public Cursor viewBigExpenseDetailData(String bigExpenseId){
+    public Cursor viewBigExpenseDetailData(int bigExpenseId){
 
-        String query = " SELECT * FROM " + TABLE_BIGEXPENSE + "WHERE BigExpenseID = '"+bigExpenseId+"'";
+        String query = " SELECT * FROM " + TABLE_BIGEXPENSE + " WHERE BigExpenseID = "+bigExpenseId;
         Cursor c = sqLiteDatabase.rawQuery(query, null);
         return c;
     }
 
-    public  boolean addBigExpenseRecord (String title, double amount, String issueDate, String email){
+    public  boolean addBigExpenseRecord (String title, String issueDate, double amount, String email){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(TABLE_BIGEXPENSE_COL_TITLE, title);
-        values.put(TABLE_BIGEXPENSE_COL_AMOUNT, amount);
         values.put(TABLE_BIGEXPENSE_COL_ISSUEDATE, issueDate);
+        values.put(TABLE_BIGEXPENSE_COL_AMOUNT, amount);
         values.put(TABLE_BIGEXPENSE_COL_EMAIL, email);
 
         long r = sqLiteDatabase.insert(TABLE_BIGEXPENSE,null, values);
@@ -46,6 +41,14 @@ public class BigExpenseDatabaseHelper extends DatabaseBase {
         else
             return false;
     }
+    public boolean deleteRec(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        String query = "DELETE FROM " + TABLE_BIGEXPENSE + " WHERE BigExpenseID = " + id;
+        sqLiteDatabase.execSQL(query);
+        return true;
+    }
+
 
    /* public  boolean addRecord (String i, Integer p, String d){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -68,13 +71,6 @@ public class BigExpenseDatabaseHelper extends DatabaseBase {
         return c;
     }
 
-    public boolean deleteRec(int id) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-
-        String query = "DELETE FROM " + TABLE1_NAME + "where Id = " + id;
-        sqLiteDatabase.execSQL(query);
-        return true;
-    }
 
     public boolean updateRec(int idUpdate, String dateUpdate) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

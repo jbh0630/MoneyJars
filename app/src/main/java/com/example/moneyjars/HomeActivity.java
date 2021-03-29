@@ -7,10 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.moneyjars.BigExpense.BigExpenseListActivity;
-
-import java.time.LocalDateTime;
-
 public class HomeActivity extends AppCompatActivity {
 
     @Override
@@ -24,7 +20,7 @@ public class HomeActivity extends AppCompatActivity {
         btnBigExpenseHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, BigExpenseListActivity.class));
+                startActivity(new Intent(HomeActivity.this, BigExpenseListActivity1.class));
             }
         });
 
