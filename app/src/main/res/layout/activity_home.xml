@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCurrentDate" />
 
     <Button
-        android:id="@+id/btnBigEx"
+        android:id="@+id/btnBigExHome"
         android:layout_width="313dp"
         android:layout_height="120dp"
         android:layout_marginStart="49dp"

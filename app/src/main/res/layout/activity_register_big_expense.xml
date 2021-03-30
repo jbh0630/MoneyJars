@@ -4,19 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterBigExpenseActivity">
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="46dp"
-        android:text="Save"
-        android:textSize="18sp"
-        app:backgroundTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".BigExpenseRegisterActivity">
 
     <View
         android:id="@+id/view6"
@@ -47,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button23"
+            android:id="@+id/btnBackBigExpenseL"
             android:layout_width="41dp"
             android:layout_height="38dp"
             android:layout_marginStart="10dp"
@@ -108,113 +96,54 @@
             app:backgroundTint="@color/white" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView66"
-        android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:text="2021/05/01"
-        android:textSize="24sp"
+    <EditText
+        android:id="@+id/expense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:ems="10"
+        android:hint="@string/hintBigExpense1"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view6" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal3"
-        android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="@string/hintBigExpense2"
         android:inputType="numberDecimal"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView74" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
 
-    <TextView
-        android:id="@+id/textView64"
-        android:layout_width="240dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:text="New Car"
-        android:textSize="24sp"
+    <Button
+        android:id="@+id/btnExpenseRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:text="@string/btnSave"
+        android:textStyle="bold"
+        app:backgroundTint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
-
-    <TextView
-        android:id="@+id/textView67"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:text="Amount"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView73" />
+        app:layout_constraintTop_toBottomOf="@+id/amount" />
 
     <TextView
-        android:id="@+id/textView68"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginRight="67dp"
-        android:text="Note"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView64"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView67" />
-
-    <TextView
-        android:id="@+id/textView63"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:text="Date"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView66"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view6" />
-
-    <TextView
-        android:id="@+id/textView73"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginRight="74dp"
-        android:text="Title"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView74"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView63" />
-
-    <TextView
-        android:id="@+id/textView74"
-        android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:text="Car"
-        android:textSize="24sp"
+        android:id="@+id/date"
+        android:layout_width="207dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginLeft="101dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="103dp"
+        android:layout_marginRight="103dp"
+        android:hint="Select Date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView66" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expense" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

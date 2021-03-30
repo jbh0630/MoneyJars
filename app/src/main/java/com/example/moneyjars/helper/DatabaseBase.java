@@ -15,7 +15,7 @@ import java.util.List;
 public class DatabaseBase extends SQLiteOpenHelper {
 
     public final static String DATABASE_NAME = "MoneyJarsDB";
-    public final static int DATABASE_VERSION = 2;
+    public final static int DATABASE_VERSION = 4;
     public final static String TABLE_USER = "USER";
     public final static String TABLE_USER_COL_EMAIL        = "Email";
     public final static String TABLE_USER_COL_FIRSTNAME    = "FirstName";
