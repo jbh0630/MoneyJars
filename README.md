@@ -1,6 +1,6 @@
 # MoneyJars
 
-The project is a household ledger Android application made in the Java language with all time update Database.
+The project is made for Dougals College Assignment and it is a household ledger Android application made in the Java language with all time update Database.
 
 ## Final Product
 
